@@ -42,6 +42,11 @@ def get_current_time():
 
 # ===== 提示模板定义 =====
 
+# 实际模板要设计逻辑分区，前面尽量不变（匹配激活kv-cache）工具表中可用的标为✓，不可用的标为x。
+# [工具列表] tool1(func_name, des, quota), tool2, tool3,,,,tool
+# [参考知识]
+# [可用工具] mask[✓x✓✓xx✓✓x✓]
+
 @mcp.prompt(description="北京景点推荐")
 def top_beijing_tourist_spots(city_info: str) -> str:
     return f"你是旅游博主，非常了解北京文化，按以下内容进行推荐\n\n{city_info}"
